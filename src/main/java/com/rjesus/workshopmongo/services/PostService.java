@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rjesus.workshopmongo.domain.Post;
-import com.rjesus.workshopmongo.domain.User;
 import com.rjesus.workshopmongo.repository.PostRepository;
 import com.rjesus.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -27,6 +26,9 @@ public class PostService {
 		
 	}
 	
+	public List<Post> findByTitle(String text) {
+		return repo.findByTitleContainingIgnoreCase(text);
+	}
 	
 
 }
